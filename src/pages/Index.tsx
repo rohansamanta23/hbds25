@@ -1,6 +1,6 @@
-
 import ConfettiBackground from "@/components/ConfettiBackground";
 import BirthdayGallerySection from "@/components/BirthdayGallerySection";
+import MemoryLaneSection from "@/components/MemoryLaneSection";
 
 const Index = () => {
   return (
@@ -34,6 +34,9 @@ const Index = () => {
       <section className="relative min-h-screen flex flex-col justify-center items-center px-4 z-10">
         <BirthdayGallerySection />
       </section>
+
+      {/* Memory Lane Section */}
+      <MemoryLaneSection />
 
       <footer className="relative z-10 w-full flex justify-center items-center pb-4">
         <span className="text-base md:text-lg text-fuchsia-900/80 bg-white/60 rounded-md px-4 py-1 shadow animate-fade-in font-semibold">

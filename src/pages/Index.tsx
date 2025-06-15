@@ -1,7 +1,7 @@
-
 // Modern "Happy Birthday Soumili" page
 
 import ConfettiBackground from "@/components/ConfettiBackground";
+import BirthdayGallerySection from "@/components/BirthdayGallerySection";
 
 const Index = () => {
   return (
@@ -26,6 +26,8 @@ const Index = () => {
           Wishing you a day filled with love, laughter and happiness!
         </p>
       </div>
+      {/* -- Birthday Photos & Message Section -- */}
+      <BirthdayGallerySection />
       <footer className="relative z-10 w-full flex justify-center items-center mt-24 pb-4">
         <span className="text-base md:text-lg text-fuchsia-900/80 bg-white/60 rounded-md px-4 py-1 shadow animate-fade-in font-semibold">
           — from your friends 🎈

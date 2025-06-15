@@ -1,10 +1,9 @@
-
 import React from "react";
 
 const PHOTOS = [
-  "../../public/assets/caterpi.png",
-  "../../public/assets/pupa.png",
-  "../../public/assets/butter.png",
+  "/assets/caterpi.png",
+  "/assets/pupa.png",
+  "/assets/butter.png",
 ];
 
 const message = `You’re the only person I know who could mess up using a laptop, burn water(rip soyabean), and still act like the main character. Honestly, it’s impressive how you manage to survive despite having the decision-making skills of a broken system.

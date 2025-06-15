@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { GalleryHorizontal, Sparkle } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext, type CarouselApi } from "@/components/ui/carousel";
@@ -6,42 +5,42 @@ import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext
 const MEMORIES = [
   {
     date: "Sep 2019",
-    image: "../../public/assets/sep19.JPG",
+    image: "/assets/sep19.JPG",
     comment: "trip to the mountains - it was fun."
   },
   {
     date: "jan 2020",
-    image: "../../public/assets/jan20.jpg",
+    image: "/assets/jan20.jpg",
     comment: "birthday treat party"
   },
   {
     date: "Jan 2020",
-    image: "../../public/assets/jan20.2.jpg",
+    image: "/assets/jan20.2.jpg",
     comment: "Your first school bunk."
   },
   {
     date: "Mar 2024",
-    image: "../../public/assets/mar24.jpg",
+    image: "/assets/mar24.jpg",
     comment: "Twining!"
   },
   {
     date: "Apr 2024",
-    image: "../../public/assets/apr24.jpg",
+    image: "/assets/apr24.jpg",
     comment: "Trying to be drunk, but failing miserably."
   },
   {
     date: "May 2024",
-    image: "../../public/assets/may24.jpeg",
+    image: "/assets/may24.jpeg",
     comment: "Why am I here again? I forgot."
   },
   {
     date: "Aug 2024",
-    image: "../../public/assets/aug24.jpg",
+    image: "/assets/aug24.jpg",
     comment: "It was a great day to be honest. But, it was too nerdy."
   },
   {
     date: "Mar 2025",
-    image: "../../public/assets/mar25.jpg",
+    image: "/assets/mar25.jpg",
     comment: "I always loved this place. It is so peaceful and quiet. and the launch drive was amazing."
   }
 ];

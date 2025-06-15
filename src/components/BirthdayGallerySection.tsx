@@ -1,9 +1,9 @@
 import React from "react";
 
 const PHOTOS = [
-  "/assets/caterpi.png",
-  "/assets/pupa.png",
-  "/assets/butter.png",
+  "https://res.cloudinary.com/projectbackendrohan/image/upload/v1750001306/ChatGPT_Image_Jun_15_2025_04_30_06_PM_r6ud2t.png",
+  "https://res.cloudinary.com/projectbackendrohan/image/upload/v1750001306/ChatGPT_Image_Jun_15_2025_04_32_27_PM_rdlvyg.png",
+  "https://res.cloudinary.com/projectbackendrohan/image/upload/v1750001306/ChatGPT_Image_Jun_15_2025_04_32_32_PM_pzs3wt.png",
 ];
 
 const message = `You’re the only person I know who could mess up using a laptop, burn water(rip soyabean), and still act like the main character. Honestly, it’s impressive how you manage to survive despite having the decision-making skills of a broken system.

@@ -5,42 +5,42 @@ import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext
 const MEMORIES = [
   {
     date: "Sep 2019",
-    image: "/assets/sep19.JPG",
+    image: "https://res.cloudinary.com/projectbackendrohan/image/upload/v1750001566/sep19_kwhd9q.jpg",
     comment: "trip to the mountains - it was fun."
   },
   {
     date: "jan 2020",
-    image: "/assets/jan20.jpg",
+    image: "https://res.cloudinary.com/projectbackendrohan/image/upload/v1750001562/jan20_hqe9kk.jpg",
     comment: "birthday treat party"
   },
   {
     date: "Jan 2020",
-    image: "/assets/jan20.2.jpg",
+    image: "https://res.cloudinary.com/projectbackendrohan/image/upload/v1750001562/jan20.2_tsuz0n.jpg",
     comment: "Your first school bunk."
   },
   {
     date: "Mar 2024",
-    image: "/assets/mar24.jpg",
+    image: "https://res.cloudinary.com/projectbackendrohan/image/upload/v1750001562/mar24_usq6p5.jpg",
     comment: "Twining!"
   },
   {
     date: "Apr 2024",
-    image: "/assets/apr24.jpg",
+    image: "https://res.cloudinary.com/projectbackendrohan/image/upload/v1750001561/apr24_ynbifq.jpg",
     comment: "Trying to be drunk, but failing miserably."
   },
   {
     date: "May 2024",
-    image: "/assets/may24.jpeg",
+    image: "https://res.cloudinary.com/projectbackendrohan/image/upload/v1750001566/may24_znjq0g.jpg",
     comment: "Why am I here again? I forgot."
   },
   {
     date: "Aug 2024",
-    image: "/assets/aug24.jpg",
+    image: "https://res.cloudinary.com/projectbackendrohan/image/upload/v1750001562/aug24_gnpx5k.jpg",
     comment: "It was a great day to be honest. But, it was too nerdy."
   },
   {
     date: "Mar 2025",
-    image: "/assets/mar25.jpg",
+    image: "https://res.cloudinary.com/projectbackendrohan/image/upload/v1750001563/mar25_wfj0sj.jpg",
     comment: "I always loved this place. It is so peaceful and quiet. and the launch drive was amazing."
   }
 ];

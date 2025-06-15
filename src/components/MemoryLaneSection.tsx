@@ -1,11 +1,7 @@
+
 import React from "react";
 import { GalleryHorizontal, Sparkle } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 const MEMORIES = [
   {
@@ -48,17 +44,15 @@ const MEMORIES = [
 function MemoryCard({
   date,
   image,
-  comment,
-  isActive,
+  comment
 }: {
   date: string;
   image: string;
   comment: string;
-  isActive: boolean;
 }) {
   return (
     <div
-      className={`
+      className="
         relative flex flex-col md:flex-row items-center justify-center
         min-h-[62vh] md:min-h-[72vh] max-h-[84vh]
         w-full max-w-3xl md:max-w-4xl mx-auto
@@ -67,9 +61,7 @@ function MemoryCard({
         animate-fade-in
         p-0
         group
-        transition-all duration-300 ease-in-out
-        ${isActive ? "scale-105 z-10 shadow-2xl ring-2 ring-fuchsia-300" : "scale-95 opacity-75"}
-      `}
+      "
       style={{
         background: "linear-gradient(120deg, #fdf6fa 0%, #ebd8f1 60%, #fde6f5 100%)"
       }}
@@ -126,73 +118,46 @@ function MemoryCard({
 }
 
 // Main horizontal, scroll-responsive carousel:
-const MemoryLaneSection: React.FC = () => {
-  // Embed Embla directly for fine-grain control.
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: false,
-    align: "center",
-    dragFree: false, // snap (not free scroll)
-    slidesToScroll: 1,
-    containScroll: 'trimSnaps', // Prevent scroll past last snap
-    skipSnaps: false,
-  });
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
-
-  // Keep track of selected memory
-  React.useEffect(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
-    };
-  }, [emblaApi]);
-
-  return (
-    <section className="relative flex flex-col items-center justify-center min-h-[92vh] w-full py-20 md:py-24 px-2 z-10">
-      <div className="flex flex-col items-center mb-8">
-        <div className="flex items-center gap-2 mb-4">
-          <GalleryHorizontal className="text-fuchsia-700" size={36} />
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-fuchsia-800 drop-shadow text-center">
-            Memory Lane
-          </h2>
-        </div>
+const MemoryLaneSection: React.FC = () => (
+  <section className="relative flex flex-col items-center justify-center min-h-[92vh] w-full py-20 md:py-24 px-2 z-10">
+    <div className="flex flex-col items-center mb-8">
+      <div className="flex items-center gap-2 mb-4">
+        <GalleryHorizontal className="text-fuchsia-700" size={36} />
+        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-fuchsia-800 drop-shadow text-center">
+          Memory Lane
+        </h2>
       </div>
-      {/* Horizontal Carousel - responsive scroll/swipe */}
-      <div
-        ref={emblaRef}
-        className="w-full max-w-4xl relative animate-fade-in"
-        style={{
-          minHeight: "72vh",
-          overflow: "hidden",
-        }}
-        tabIndex={0}
-      >
-        <div className="flex -ml-4 touch-pan-x snap-x scroll-px-8">
-          {MEMORIES.map((m, idx) => (
-            <div
-              key={m.date + idx}
-              className="min-w-0 shrink-0 grow-0 basis-full pl-4 snap-center"
-              tabIndex={-1}
-              aria-label={`Memory ${idx + 1} of ${MEMORIES.length}`}
-            >
-              <MemoryCard {...m} isActive={selectedIndex === idx} />
-            </div>
-          ))}
-        </div>
-        {/* Add empty spacer (div) at end to allow scroll down easily */}
-        <div className="w-full h-36 md:h-52" />
-      </div>
-      <div className="mt-8 text-fuchsia-700 text-base font-medium">
-        <span className="bg-fuchsia-50 px-4 py-1 rounded-full shadow">
-          Scroll left/right or swipe to explore!
-        </span>
-      </div>
-    </section>
-  );
-};
+    </div>
+    {/* Horizontal Carousel - responsive scroll/swipe */}
+    <Carousel
+      opts={{
+        loop: true,
+        align: "center",
+        dragFree: false
+      }}
+      orientation="horizontal"
+      className="w-full max-w-4xl relative animate-fade-in"
+      style={{
+        minHeight: "72vh"
+      }}
+    >
+      <CarouselContent>
+        {MEMORIES.map((m, idx) => (
+          <CarouselItem key={m.date + idx}>
+            <MemoryCard {...m} />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      {/* Move buttons for horizontal orientation (arrows left/right) */}
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+    <div className="mt-8 text-fuchsia-700 text-base font-medium">
+      <span className="bg-fuchsia-50 px-4 py-1 rounded-full shadow">
+        Scroll left/right or swipe to explore!
+      </span>
+    </div>
+  </section>
+);
 
 export default MemoryLaneSection;

@@ -1,35 +1,46 @@
+
 import React from "react";
 import { GalleryHorizontal, Sparkle } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
-const MEMORIES = [{
-  date: "Apr 2023",
-  image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=600&q=80",
-  comment: "Late night study sessions – laughter & coffee included!"
-}, {
-  date: "May 2023",
-  image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=600&q=80",
-  comment: "Planning getaways that didn't go to plan (but were the best ever)."
-}, {
-  date: "Jul 2023",
-  image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
-  comment: "Photo walks – capturing quirky moments and each other."
-}, {
-  date: "Sep 2023",
-  image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
-  comment: "Movie nights – popcorn, bad jokes, and hugs."
-}, {
-  date: "Nov 2023",
-  image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=600&q=80",
-  comment: "Stargazing till dawn (or until someone fell asleep)."
-}, {
-  date: "Jan 2024",
-  image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=600&q=80",
-  comment: "Cozy winter evenings wrapped in blankets, telling stories."
-}, {
-  date: "Mar 2024",
-  image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-  comment: "Spontaneous adventures – always finding a way to have fun!"
-}];
+
+const MEMORIES = [
+  {
+    date: "Apr 2023",
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=600&q=80",
+    comment: "Late night study sessions – laughter & coffee included!"
+  },
+  {
+    date: "May 2023",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=600&q=80",
+    comment: "Planning getaways that didn't go to plan (but were the best ever)."
+  },
+  {
+    date: "Jul 2023",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
+    comment: "Photo walks – capturing quirky moments and each other."
+  },
+  {
+    date: "Sep 2023",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+    comment: "Movie nights – popcorn, bad jokes, and hugs."
+  },
+  {
+    date: "Nov 2023",
+    image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=600&q=80",
+    comment: "Stargazing till dawn (or until someone fell asleep)."
+  },
+  {
+    date: "Jan 2024",
+    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=600&q=80",
+    comment: "Cozy winter evenings wrapped in blankets, telling stories."
+  },
+  {
+    date: "Mar 2024",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    comment: "Spontaneous adventures – always finding a way to have fun!"
+  }
+];
+
 function MemoryCard({
   date,
   image,
@@ -39,18 +50,22 @@ function MemoryCard({
   image: string;
   comment: string;
 }) {
-  return <div className="
+  return (
+    <div
+      className="
         relative flex flex-col md:flex-row items-center justify-center
-        min-h-[72vh] md:min-h-[76vh] max-h-[84vh]
+        min-h-[62vh] md:min-h-[72vh] max-h-[84vh]
         w-full max-w-3xl md:max-w-4xl mx-auto
         overflow-hidden
         border-[2.5px] border-fuchsia-200 shadow-2xl rounded-3xl
         animate-fade-in
         p-0
         group
-      " style={{
-    background: "linear-gradient(120deg, #fdf6fa 0%, #ebd8f1 60%, #fde6f5 100%)"
-  }}>
+      "
+      style={{
+        background: "linear-gradient(120deg, #fdf6fa 0%, #ebd8f1 60%, #fde6f5 100%)"
+      }}
+    >
       {/* Decorative colorful overlays for professional touch */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute left-0 top-0 w-[54%] h-[54%] bg-gradient-to-br from-pink-300/50 via-fuchsia-200/40 to-fuchsia-100/0 rounded-bl-3xl blur-[64px]"></div>
@@ -66,12 +81,18 @@ function MemoryCard({
             <span className="absolute -top-3 -left-3 z-10 animate-pulse">
               <Sparkle className="text-fuchsia-400 drop-shadow" size={38} />
             </span>
-            <img src={image} alt={date} className="
+            <img
+              src={image}
+              alt={date}
+              className="
                 w-64 h-64 md:w-72 md:h-72 rounded-3xl object-cover shadow-2xl border-4 border-white/90
                 hover:scale-105 group-hover:scale-105 transition-transform duration-300 
                 ring-2 ring-fuchsia-200
                 bg-[#f8e5fb]
-              " draggable={false} loading="lazy" />
+              "
+              draggable={false}
+              loading="lazy"
+            />
             <span className="absolute -bottom-3 -right-3 z-10 animate-pulse">
               <Sparkle className="text-fuchsia-400 drop-shadow" size={28} />
             </span>
@@ -92,9 +113,13 @@ function MemoryCard({
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 }
-const MemoryLaneSection: React.FC = () => <section className="relative flex flex-col items-center justify-center min-h-[92vh] w-full py-20 md:py-24 px-2 z-10">
+
+// Main horizontal, scroll-responsive carousel:
+const MemoryLaneSection: React.FC = () => (
+  <section className="relative flex flex-col items-center justify-center min-h-[92vh] w-full py-20 md:py-24 px-2 z-10">
     <div className="flex flex-col items-center mb-8">
       <div className="flex items-center gap-2 mb-4">
         <GalleryHorizontal className="text-fuchsia-700" size={36} />
@@ -103,25 +128,36 @@ const MemoryLaneSection: React.FC = () => <section className="relative flex flex
         </h2>
       </div>
     </div>
-    {/* Carousel - vertical orientation, swipe or scroll to move memories */}
-    <Carousel opts={{
-    loop: true,
-    align: "center",
-    dragFree: false
-  }} orientation="vertical" className="w-full max-w-4xl relative animate-fade-in" style={{
-    height: "80vh"
-  }}>
+    {/* Horizontal Carousel - responsive scroll/swipe */}
+    <Carousel
+      opts={{
+        loop: true,
+        align: "center",
+        dragFree: false
+      }}
+      orientation="horizontal"
+      className="w-full max-w-4xl relative animate-fade-in"
+      style={{
+        minHeight: "72vh"
+      }}
+    >
       <CarouselContent>
-        {MEMORIES.map((m, idx) => <CarouselItem key={m.date + idx}>
+        {MEMORIES.map((m, idx) => (
+          <CarouselItem key={m.date + idx}>
             <MemoryCard {...m} />
-          </CarouselItem>)}
+          </CarouselItem>
+        ))}
       </CarouselContent>
-      {/* Move buttons for vertical orientation (arrows up/down) */}
-      
-      
+      {/* Move buttons for horizontal orientation (arrows left/right) */}
+      <CarouselPrevious />
+      <CarouselNext />
     </Carousel>
     <div className="mt-8 text-fuchsia-700 text-base font-medium">
-      <span className="bg-fuchsia-50 px-4 py-1 rounded-full shadow">Scroll up/down or swipe to explore!</span>
+      <span className="bg-fuchsia-50 px-4 py-1 rounded-full shadow">
+        Scroll left/right or swipe to explore!
+      </span>
     </div>
-  </section>;
+  </section>
+);
+
 export default MemoryLaneSection;

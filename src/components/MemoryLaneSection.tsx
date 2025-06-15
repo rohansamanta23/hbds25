@@ -1,7 +1,7 @@
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { GalleryHorizontal, Sparkle } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext, type CarouselApi } from "@/components/ui/carousel";
 
 const MEMORIES = [
   {
@@ -118,46 +118,87 @@ function MemoryCard({
 }
 
 // Main horizontal, scroll-responsive carousel:
-const MemoryLaneSection: React.FC = () => (
-  <section className="relative flex flex-col items-center justify-center min-h-[92vh] w-full py-20 md:py-24 px-2 z-10">
-    <div className="flex flex-col items-center mb-8">
-      <div className="flex items-center gap-2 mb-4">
-        <GalleryHorizontal className="text-fuchsia-700" size={36} />
-        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-fuchsia-800 drop-shadow text-center">
-          Memory Lane
-        </h2>
-      </div>
-    </div>
-    {/* Horizontal Carousel - responsive scroll/swipe */}
-    <Carousel
-      opts={{
-        loop: true,
-        align: "center",
-        dragFree: false
-      }}
-      orientation="horizontal"
-      className="w-full max-w-4xl relative animate-fade-in"
-      style={{
-        minHeight: "72vh"
-      }}
+const MemoryLaneSection: React.FC = () => {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Auto-advance memory unless hovered
+  useEffect(() => {
+    // Don't create interval if hovered or api not ready
+    if (!carouselApi || isHovered) {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      return;
+    }
+    intervalRef.current = setInterval(() => {
+      // Next, but loop around if at end
+      if (carouselApi) {
+        if (carouselApi.selectedScrollSnap() === MEMORIES.length - 1) {
+          carouselApi.scrollTo(0);
+        } else {
+          carouselApi.scrollNext();
+        }
+      }
+    }, 3500); // 3.5s per slide
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [carouselApi, isHovered]);
+
+  return (
+    <section
+      className="relative flex flex-col items-center justify-center min-h-[92vh] w-full py-20 md:py-24 px-2 z-10"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setIsHovered(false)}
     >
-      <CarouselContent>
-        {MEMORIES.map((m, idx) => (
-          <CarouselItem key={m.date + idx}>
-            <MemoryCard {...m} />
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      {/* Move buttons for horizontal orientation (arrows left/right) */}
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
-    <div className="mt-8 text-fuchsia-700 text-base font-medium">
-      <span className="bg-fuchsia-50 px-4 py-1 rounded-full shadow">
-        Scroll left/right or swipe to explore!
-      </span>
-    </div>
-  </section>
-);
+      <div className="flex flex-col items-center mb-8">
+        <div className="flex items-center gap-2 mb-4">
+          <GalleryHorizontal className="text-fuchsia-700" size={36} />
+          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-fuchsia-800 drop-shadow text-center">
+            Memory Lane
+          </h2>
+        </div>
+      </div>
+      {/* Horizontal Carousel - responsive scroll/swipe */}
+      <Carousel
+        opts={{
+          loop: true,
+          align: "center",
+          dragFree: false
+        }}
+        orientation="horizontal"
+        className="w-full max-w-4xl relative animate-fade-in"
+        style={{
+          minHeight: "72vh"
+        }}
+        setApi={setCarouselApi}
+      >
+        <CarouselContent>
+          {MEMORIES.map((m, idx) => (
+            <CarouselItem key={m.date + idx}>
+              <MemoryCard {...m} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {/* If arrows needed, uncomment below */}
+        {/* <CarouselPrevious /> */}
+        {/* <CarouselNext /> */}
+      </Carousel>
+      <div className="mt-8 text-fuchsia-700 text-base font-medium">
+        <span className="bg-fuchsia-50 px-4 py-1 rounded-full shadow">
+          Scroll left/right or swipe to explore!
+        </span>
+      </div>
+    </section>
+  );
+};
 
 export default MemoryLaneSection;

@@ -13,16 +13,14 @@ Hope all your dreams come true – you deserve every bit of happiness! 🎂🎉`
 
 const BirthdayGallerySection: React.FC = () => {
   return (
-    <section
-      className="relative z-10 max-w-3xl mx-auto w-full mt-20 mb-16 flex flex-col items-center animate-fade-in"
-    >
+    <div className="w-full max-w-3xl flex flex-col items-center justify-center animate-fade-in">
       <div className="w-full flex flex-col sm:flex-row gap-6 items-center justify-center">
         {PHOTOS.map((url, idx) => (
           <div key={idx} className="w-full sm:w-1/3 flex-shrink-0 flex-grow-0">
             <img
               src={url}
               alt={`Soumili moment ${idx + 1}`}
-              className="rounded-xl shadow-lg object-cover w-full h-44 sm:h-56 md:h-64 bg-white/80"
+              className="rounded-xl shadow-lg object-cover w-full h-44 sm:h-56 md:h-64 bg-white/80 hover-scale"
               loading="lazy"
               draggable={false}
             />
@@ -32,9 +30,8 @@ const BirthdayGallerySection: React.FC = () => {
       <p className="mt-9 text-lg sm:text-xl font-medium text-fuchsia-800 bg-white/70 rounded-lg px-6 py-5 shadow-md text-center leading-relaxed backdrop-blur-md w-full max-w-xl">
         {message}
       </p>
-    </section>
+    </div>
   );
 };
 
 export default BirthdayGallerySection;
-

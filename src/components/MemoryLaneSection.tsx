@@ -188,9 +188,9 @@ const MemoryLaneSection: React.FC = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* If arrows needed, uncomment below */}
-        {/* <CarouselPrevious /> */}
-        {/* <CarouselNext /> */}
+        {/* Show arrow navigation buttons for carousel */}
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
       <div className="mt-8 text-fuchsia-700 text-base font-medium">
         <span className="bg-fuchsia-50 px-4 py-1 rounded-full shadow">
@@ -202,3 +202,4 @@ const MemoryLaneSection: React.FC = () => {
 };
 
 export default MemoryLaneSection;
+

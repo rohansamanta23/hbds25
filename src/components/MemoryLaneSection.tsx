@@ -5,39 +5,44 @@ import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext
 
 const MEMORIES = [
   {
-    date: "Apr 2023",
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=600&q=80",
-    comment: "Late night study sessions – laughter & coffee included!"
+    date: "Sep 2019",
+    image: "../../public/assets/sep19.JPG",
+    comment: "trip to the mountains - it was fun."
   },
   {
-    date: "May 2023",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=600&q=80",
-    comment: "Planning getaways that didn't go to plan (but were the best ever)."
+    date: "jan 2020",
+    image: "../../public/assets/jan20.jpg",
+    comment: "birthday treat party"
   },
   {
-    date: "Jul 2023",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
-    comment: "Photo walks – capturing quirky moments and each other."
-  },
-  {
-    date: "Sep 2023",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
-    comment: "Movie nights – popcorn, bad jokes, and hugs."
-  },
-  {
-    date: "Nov 2023",
-    image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=600&q=80",
-    comment: "Stargazing till dawn (or until someone fell asleep)."
-  },
-  {
-    date: "Jan 2024",
-    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=600&q=80",
-    comment: "Cozy winter evenings wrapped in blankets, telling stories."
+    date: "Jan 2020",
+    image: "../../public/assets/jan20.2.jpg",
+    comment: "Your first school bunk."
   },
   {
     date: "Mar 2024",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-    comment: "Spontaneous adventures – always finding a way to have fun!"
+    image: "../../public/assets/mar24.jpg",
+    comment: "Twining!"
+  },
+  {
+    date: "Apr 2024",
+    image: "../../public/assets/apr24.jpg",
+    comment: "Trying to be drunk, but failing miserably."
+  },
+  {
+    date: "May 2024",
+    image: "../../public/assets/may24.jpeg",
+    comment: "Why am I here again? I forgot."
+  },
+  {
+    date: "Aug 2024",
+    image: "../../public/assets/aug24.jpg",
+    comment: "It was a great day to be honest. But, it was too nerdy."
+  },
+  {
+    date: "Mar 2025",
+    image: "../../public/assets/mar25.jpg",
+    comment: "I always loved this place. It is so peaceful and quiet. and the launch drive was amazing."
   }
 ];
 
@@ -194,7 +199,7 @@ const MemoryLaneSection: React.FC = () => {
       </Carousel>
       <div className="mt-8 text-fuchsia-700 text-base font-medium">
         <span className="bg-fuchsia-50 px-4 py-1 rounded-full shadow">
-          Scroll left/right or swipe to explore!
+          Scroll left/right to explore!
         </span>
       </div>
     </section>

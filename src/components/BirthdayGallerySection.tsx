@@ -2,18 +2,17 @@
 import React from "react";
 
 const PHOTOS = [
-  "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80",
+  "../../public/assets/caterpi.png",
+  "../../public/assets/pupa.png",
+  "../../public/assets/butter.png",
 ];
 
-const message = `Another year, another incredible journey ahead! 
-We're so lucky to have you in our lives.
-Hope all your dreams come true – you deserve every bit of happiness! 🎂🎉`;
+const message = `You’re the only person I know who could mess up using a laptop, burn water(rip soyabean), and still act like the main character. Honestly, it’s impressive how you manage to survive despite having the decision-making skills of a broken system.
+And still, you wanted to travel solo.`;
 
 const BirthdayGallerySection: React.FC = () => {
   return (
-    <div className="w-full max-w-3xl flex flex-col items-center justify-center animate-fade-in">
+    <div className="w-full max-w-3xl flex flex-col  items-center justify-center animate-fade-in">
       <div className="w-full flex flex-col sm:flex-row gap-6 items-center justify-center">
         {PHOTOS.map((url, idx) => (
           <div key={idx} className="w-full sm:w-1/3 flex-shrink-0 flex-grow-0">

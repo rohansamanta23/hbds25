@@ -4,7 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
-
+#root > div.relative.w-full.min-h-screen.overflow-x-hidden > section:nth-child(4){
+  background-color: #e02f2f;
+}
 .logo {
   height: 6em;
   padding: 1.5em;

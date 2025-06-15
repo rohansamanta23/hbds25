@@ -10,7 +10,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-4 animate-fade-in z-10">
         <div className="flex flex-col items-center">
-          <h1 className="font-playfair text-[clamp(6.5rem,7vw,5rem)] font-bold text-white drop-shadow-2xl text-center" style={{
+          <h1 className="font-playfair text-[clamp(5.5rem,7vw,5rem)] font-bold text-white drop-shadow-2xl text-center" style={{
           lineHeight: "1.05",
           letterSpacing: "-0.02em",
           textShadow: "0 8px 32px #fa709aa0"
